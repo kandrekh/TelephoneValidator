@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
  * Program: Alphanumeric telephone number translator
  * Author: K-Andre Harris
  * Date Created: April 10, 2024,
- * Date Modified: May 10, 2024
+ * Date Modified: May 13, 2024
 
  * Course: CIT 111-Z02 Intro to Prog: Java
  * Spring 2024
@@ -15,16 +15,16 @@ import java.util.regex.Pattern;
 public class TelephoneTranslator {
 
     public static void main(String[] args){
-//    Call getNumber Method
+      // Call validation() Method which calls the getNumber() method
       validation();
     }
 
     /**
-     * @return alphaNumericNumber initial number from user
+     * @return phoneNumberInput for validation and conversion
      */
     public static String getNumber(){
         String phoneNumberInput;
-        phoneNumberInput =  JOptionPane.showInputDialog("Enter the 10 digit phone number in format XXX-XXX-XXXX ").toUpperCase();
+        phoneNumberInput =  JOptionPane.showInputDialog("Enter the 10 digit alphanumeric phone number in format XXX-XXX-XXXX ").toUpperCase();
         return phoneNumberInput;
     }
 
@@ -59,6 +59,7 @@ public class TelephoneTranslator {
         for (int i = 0; i < phoneNumber.length(); i++){
             char ch = phoneNumber.charAt(i);
             if (Character.isLetter(ch)) {
+                // pattern matching switch
                 phoneNumberFinal = switch (ch) {
                     case 'A', 'B', 'C' -> phoneNumberFinal * 10 + 2;
                     case 'D', 'E', 'F' -> phoneNumberFinal * 10 + 3;
@@ -66,7 +67,7 @@ public class TelephoneTranslator {
                     case 'J', 'K', 'L' -> phoneNumberFinal * 10 + 5;
                     case 'M', 'N', 'O' -> phoneNumberFinal * 10 + 6;
                     case 'P', 'Q', 'R', 'S' -> phoneNumberFinal * 10 + 7;
-                    case 'T', 'U', 'V' -> phoneNumberFinal * 10 + 8;
+                    case 'T', 'U', 'V'      -> phoneNumberFinal * 10 + 8;
                     case 'W', 'X', 'Y', 'Z' -> phoneNumberFinal * 10 + 9;
                     default -> phoneNumberFinal;
                 };
@@ -78,7 +79,7 @@ public class TelephoneTranslator {
         // Convert long to string
         String numericPhoneNumber = Long.toString(phoneNumberFinal);
 
-        // Insert hyphens at the right positions
+        // Insert hyphens
         String formattedNumber = numericPhoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3");
 
         // Display converted telephone number
