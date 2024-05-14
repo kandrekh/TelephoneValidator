@@ -21,8 +21,7 @@ public class PhoneNumberValidation {
     /**
      *
      * @param phoneNumber accepts phone number from user for validation
-     *                    checks the number pattern if matches, converts
-     *                    if not throws error
+     * checks the number pattern if matches, converts if not throws error
      */
     public void validation( String phoneNumber){
 
