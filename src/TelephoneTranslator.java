@@ -10,6 +10,7 @@ import javax.swing.*;
  * Spring 2024
  */
 
+
 public class TelephoneTranslator {
     public static void main(String[] args){
       // Call getNumber() Method which calls the getNumber() method
@@ -20,5 +21,10 @@ public class TelephoneTranslator {
         phoneNumberInput =  JOptionPane.showInputDialog("Enter the 10 digit alphanumeric phone number in format XXX-XXX-XXXX ").toUpperCase();
         PhoneNumberValidation validateNumber = new PhoneNumberValidation();
         validateNumber.validation(phoneNumberInput);
+    }
+
+
+    public static void helloWorld(int num){
+
     }
 }
